@@ -1,9 +1,8 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        exp_sum = 0
-        act_sum = sum(nums)
-
-        for i in range(len(nums)+1):
-            exp_sum += i
+        xor = len(nums)
         
-        return exp_sum - act_sum
+        for i, num in enumerate(nums):
+            xor ^= i ^ num
+        
+        return xor
